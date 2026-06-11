@@ -1,0 +1,21 @@
+/* VacinaFácil — design tokens compartilhados */
+:root {
+  --vf-verde: #2E9E6B;
+  --vf-verde-escuro: #1E7A50;
+  --vf-verde-claro: #E6F5EE;
+  --vf-petroleo: #16384F;
+  --vf-azul-claro: #E8F0F6;
+  --vf-amarelo: #B97A0C;
+  --vf-amarelo-claro: #FBF3E2;
+  --vf-vermelho: #C0392B;
+  --vf-vermelho-claro: #FAEAE8;
+  --vf-ink: #16384F;
+  --vf-ink-soft: #4A6478;
+  --vf-bg: #F4F7F5;
+  --vf-card: #FFFFFF;
+  --vf-line: #DCE6E0;
+  --vf-r: 12px;
+  --vf-r-lg: 14px;
+  --vf-display: 'Sora', sans-serif;
+  --vf-body: 'Inter', sans-serif;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VacinaFácil — Diagramas BPMN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vf-tokens.css">
+<style>
+* { box-sizing: border-box; margin: 0; }
+body {
+  font-family: var(--vf-body);
+  background: var(--vf-bg);
+  color: var(--vf-ink);
+  padding: 36px 40px 64px;
+  -webkit-font-smoothing: antialiased;
+}
+header { max-width: 1400px; margin: 0 auto 28px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+h1 { font-family: var(--vf-display); font-size: 26px; color: var(--vf-petroleo); }
+.sub { font-size: 14px; color: var(--vf-ink-soft); }
+.badge-entrega {
+  margin-left: auto;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--vf-verde-escuro); background: var(--vf-verde-claro);
+  padding: 6px 12px; border-radius: 999px;
+}
+.diagrama {
+  max-width: 1400px; margin: 0 auto 36px;
+  background: #FFFFFF; border: 1px solid var(--vf-line);
+  border-radius: var(--vf-r-lg); padding: 28px;
+}
+.diagrama h2 { font-family: var(--vf-display); font-size: 18px; margin-bottom: 6px; }
+.diagrama p { font-size: 13.5px; color: var(--vf-ink-soft); margin-bottom: 18px; }
+.diagrama svg { width: 100%; height: auto; display: block; }
+.legenda { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 14px; font-size: 12.5px; color: var(--vf-ink-soft); align-items: center; }
+.legenda span { display: flex; align-items: center; gap: 7px; }
+.chip-cor { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Entrega 2 · Diagramas BPMN</h1>
+  <span class="sub">VacinaFácil · Requisitos de Software · 2026/1</span>
+  <span class="badge-entrega">AS-IS → TO-BE</span>
+</header>
+
+<section class="diagrama" data-screen-label="BPMN AS-IS">
+  <h2>AS-IS — Processo de Vacinação Atual (Sem Sistema)</h2>
+  <p>Processo manual em 4 raias. As etiquetas vermelhas marcam os 5 gargalos que motivam o VacinaFácil.</p>
+  <div id="svg-asis"></div>
+  <div class="legenda">
+    <span><span class="chip-cor" style="background: #C0392B;"></span>Gargalo do processo manual</span>
+    <span><span class="chip-cor" style="background: #FFFFFF; border: 1.6px solid #16384F; border-radius: 50%;"></span>Evento de início</span>
+    <span><span class="chip-cor" style="background: #FFFFFF; border: 4px solid #16384F; border-radius: 50%;"></span>Evento de fim</span>
+    <span><span class="chip-cor" style="background: #FFFFFF; border: 1.6px solid #16384F; transform: rotate(45deg); border-radius: 2px;"></span>Gateway exclusivo (XOR)</span>
+  </div>
+</section>
+
+<section class="diagrama" data-screen-label="BPMN TO-BE">
+  <h2>TO-BE — Processo de Vacinação com VacinaFácil</h2>
+  <p>O Sistema VacinaFácil assume as tarefas de notificação, confirmação, atualização e alerta. As etiquetas verdes marcam as 5 melhorias.</p>
+  <div id="svg-tobe"></div>
+  <div class="legenda">
+    <span><span class="chip-cor" style="background: #1E7A50;"></span>Melhoria habilitada pelo sistema</span>
+    <span><span class="chip-cor" style="background: #FFFFFF; border: 1.6px solid #16384F; border-radius: 50%;"></span>Evento de início</span>
+    <span><span class="chip-cor" style="background: #E6F5EE; border: 4px solid #1E7A50; border-radius: 50%;"></span>Evento de fim</span>
+    <span><span class="chip-cor" style="background: #FFFFFF; border: 1.6px solid #16384F; transform: rotate(45deg); border-radius: 2px;"></span>Gateway exclusivo (XOR)</span>
+  </div>
+</section>
+
+<script src="diagramas/bpmn-as-is.js"></script>
+<script src="diagramas/bpmn-to-be.js"></script>
+<script>
+document.getElementById('svg-asis').innerHTML = window.SVG_BPMN_ASIS;
+document.getElementById('svg-tobe').innerHTML = window.SVG_BPMN_TOBE;
+</script>
+</body>
+</html>

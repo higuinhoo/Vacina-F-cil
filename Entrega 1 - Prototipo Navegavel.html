@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VacinaFácil — Protótipo Navegável</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vf-tokens.css">
+<link rel="stylesheet" href="prototipo.css">
+</head>
+<body>
+
+<header class="vf-topbar">
+  <div class="vf-brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+      <circle cx="15" cy="15" r="15" fill="#E6F5EE"></circle>
+      <g transform="rotate(45 15 15)">
+        <rect x="11" y="7" width="8" height="13" rx="2" fill="#2E9E6B"></rect>
+        <rect x="13" y="4" width="4" height="3" rx="1" fill="#1E7A50"></rect>
+        <rect x="14.2" y="20" width="1.6" height="6" fill="#1E7A50"></rect>
+      </g>
+    </svg>
+    <div>
+      <div class="vf-brand-name">Vacina<span>Fácil</span></div>
+      <div class="vf-brand-tag">Sua saúde, organizada.</div>
+    </div>
+  </div>
+  <nav class="vf-seg" aria-label="Seletor de perfil">
+    <button type="button" class="ativo" data-perfil="cidadao">Cidadão</button>
+    <button type="button" data-perfil="tecnico">Técnico de Enfermagem</button>
+    <button type="button" data-perfil="gestor">Gestor da UBS</button>
+  </nav>
+  <div class="vf-entrega-badge">ENTREGA 1 · PROTÓTIPO NAVEGÁVEL</div>
+</header>
+
+<!-- ═══════════ PERFIL CIDADÃO ═══════════ -->
+<main>
+<section class="perfil ativo" id="perfil-cidadao">
+  <div class="fone">
+    <div class="fone-tela">
+      <div class="fone-notch"></div>
+
+      <!-- TELA-01 LOGIN -->
+      <div class="tela ativa" id="tela-01" data-screen-label="Tela-01 Login">
+        <div class="login-corpo">
+          <div class="login-logo">
+            <svg width="64" height="64" viewBox="0 0 30 30" aria-hidden="true">
+              <circle cx="15" cy="15" r="15" fill="#E6F5EE"></circle>
+              <g transform="rotate(45 15 15)">
+                <rect x="11" y="7" width="8" height="13" rx="2" fill="#2E9E6B"></rect>
+                <rect x="13" y="4" width="4" height="3" rx="1" fill="#1E7A50"></rect>
+                <rect x="14.2" y="20" width="1.6" height="6" fill="#1E7A50"></rect>
+              </g>
+            </svg>
+            <div class="vf-brand-name">Vacina<span>Fácil</span></div>
+            <div class="vf-brand-tag">Sua saúde, organizada.</div>
+          </div>
+          <div class="campo">
+            <label for="cpf">CPF</label>
+            <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14">
+            <span class="erro-inline" id="erro-cpf">Informe seu CPF para continuar.</span>
+          </div>
+          <div class="campo">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="••••••••">
+            <span class="erro-inline" id="erro-senha">Informe sua senha.</span>
+          </div>
+          <button type="button" class="btn btn-verde" id="btn-entrar">Entrar</button>
+          <button type="button" class="btn btn-outline" id="btn-govbr">Entrar com Gov.br</button>
+          <button type="button" class="link-cadastro" id="link-cadastro">Cadastre-se</button>
+          <p class="login-aviso" id="aviso-cadastro">Cadastro disponível em breve.</p>
+        </div>
+      </div>
+
+      <!-- TELA-02 HOME / CARTEIRINHA -->
+      <div class="tela" id="tela-02" data-screen-label="Tela-02 Carteirinha">
+        <div class="home-header">
+          <div class="avatar">AP</div>
+          <h2>Bom dia, Ana Paula</h2>
+          <button type="button" class="sino" aria-label="Avisos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+            <span class="sino-badge">2</span>
+          </button>
+        </div>
+        <div class="doc-cartao">
+          <div class="doc-rotulo">CARTEIRINHA DIGITAL DE VACINAÇÃO</div>
+          <div class="doc-nome">João Ferreira (filho)</div>
+          <div class="doc-linha">
+            <div><b>CPF</b>•••.456.789-00</div>
+            <div><b>CNS</b>700 5099 ••••</div>
+          </div>
+        </div>
+        <div class="abas">
+          <button type="button" class="aba ativa" data-aba="todas">Minha carteirinha</button>
+          <button type="button" class="aba" data-aba="pendentes">Pendentes (2)</button>
+        </div>
+        <div class="vac-lista" id="vac-lista">
+          <div class="vac-item" data-status="ok">
+            <span class="semaforo sem-verde"></span>
+            <div class="vac-info"><b>Pentavalente</b><span>3/3 doses</span></div>
+            <span class="badge badge-verde">EM DIA</span>
+          </div>
+          <div class="vac-item" data-status="ok">
+            <span class="semaforo sem-verde"></span>
+            <div class="vac-info"><b>Poliomielite</b><span>3/3 doses</span></div>
+            <span class="badge badge-verde">EM DIA</span>
+          </div>
+          <div class="vac-item" data-status="ok">
+            <span class="semaforo sem-verde"></span>
+            <div class="vac-info"><b>Febre Amarela</b><span>1/1 dose</span></div>
+            <span class="badge badge-verde">EM DIA</span>
+          </div>
+          <div class="vac-item" data-status="pendente">
+            <span class="semaforo sem-amarelo"></span>
+            <div class="vac-info"><b>Hepatite A</b><span>Dose única</span></div>
+            <span class="badge badge-amarelo">VENCE EM BREVE</span>
+          </div>
+          <div class="vac-item" data-status="pendente">
+            <span class="semaforo sem-vermelho"></span>
+            <div class="vac-info"><b>DTP 1º reforço</b><span>Reforço aos 15 meses</span></div>
+            <span class="badge badge-vermelho">ATRASADA</span>
+          </div>
+        </div>
+        <div class="home-acoes">
+          <button type="button" class="btn btn-ghost" id="btn-pdf">Exportar PDF (RF-020)</button>
+        </div>
+        <button type="button" class="fab" id="fab-agendar" aria-label="Agendar vacina">+</button>
+        <nav class="nav-inferior">
+          <button type="button" class="nav-item ativo">
+            <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
+            Início
+          </button>
+          <button type="button" class="nav-item" id="nav-agendar">
+            <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 11h18"></path></svg>
+            Agendar
+          </button>
+          <button type="button" class="nav-item">
+            <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+            Avisos
+          </button>
+          <button type="button" class="nav-item">
+            <svg class="nav-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+            Perfil
+          </button>
+        </nav>
+      </div>
+
+      <!-- TELA-03 AGENDAMENTO -->
+      <div class="tela" id="tela-03" data-screen-label="Tela-03 Agendamento">
+        <div class="ag-header">
+          <button type="button" class="voltar" id="ag-voltar" aria-label="Voltar">‹</button>
+          <h2>Agendar vacina</h2>
+        </div>
+        <div class="stepper">
+          <div class="passo-ind ativo" id="ind-1"><span class="passo-num">1</span><span class="passo-rotulo">Vacina</span></div>
+          <div class="passo-tracejado"></div>
+          <div class="passo-ind" id="ind-2"><span class="passo-num">2</span><span class="passo-rotulo">UBS e horário</span></div>
+          <div class="passo-tracejado"></div>
+          <div class="passo-ind" id="ind-3"><span class="passo-num">3</span><span class="passo-rotulo">Confirmar</span></div>
+        </div>
+
+        <!-- Passo 1 -->
+        <div class="ag-passo ativo" id="passo-1">
+          <div class="ag-titulo">Qual vacina deseja agendar?</div>
+          <button type="button" class="vacina-card selecionado" data-vacina="DTP 1º reforço">
+            <span class="semaforo sem-vermelho"></span>
+            <div class="vac-info"><b>DTP 1º reforço</b><span>João Ferreira (filho)</span></div>
+            <span class="badge badge-vermelho">ATRASADA</span>
+          </button>
+          <button type="button" class="vacina-card" data-vacina="Hepatite A">
+            <span class="semaforo sem-amarelo"></span>
+            <div class="vac-info"><b>Hepatite A</b><span>João Ferreira (filho)</span></div>
+            <span class="badge badge-amarelo">VENCE EM BREVE</span>
+          </button>
+          <p class="nota-rn">(RN-008) Exibindo apenas vacinas compatíveis com a faixa etária.</p>
+          <button type="button" class="btn btn-verde" id="btn-passo2">Continuar</button>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="ag-passo" id="passo-2">
+          <div class="ag-titulo">Escolha a UBS</div>
+          <div class="mapa" aria-hidden="true">
+            <span class="pino" style="left: 46%; top: 34%; background: #2E9E6B;"></span>
+            <span class="pino" style="left: 70%; top: 58%; background: #2E9E6B;"></span>
+            <span class="pino" style="left: 20%; top: 62%; background: #C0392B;"></span>
+          </div>
+          <button type="button" class="ubs-item selecionado" data-ubs="UBS Jardim Esperança">
+            <div class="ubs-info"><b>UBS Jardim Esperança</b><span>500m de distância</span></div>
+            <span class="ubs-estoque">✓ 38 doses</span>
+          </button>
+          <button type="button" class="ubs-item" data-ubs="UBS Vila Nova">
+            <div class="ubs-info"><b>UBS Vila Nova</b><span>1,3km de distância</span></div>
+            <span class="ubs-estoque">✓ 21 doses</span>
+          </button>
+          <button type="button" class="ubs-item" disabled>
+            <div class="ubs-info"><b>UBS Central</b><span>2,0km de distância</span></div>
+            <span class="ubs-estoque sem">Sem estoque (RN-003)</span>
+          </button>
+          <div class="ag-titulo">Data</div>
+          <div class="chips" id="chips-data">
+            <button type="button" class="chip selecionado" data-data="Sex, 12/06">Sex 12</button>
+            <button type="button" class="chip" data-data="Sáb, 13/06">Sáb 13</button>
+            <button type="button" class="chip" data-data="Seg, 15/06">Seg 15</button>
+            <button type="button" class="chip" data-data="Ter, 16/06">Ter 16</button>
+            <button type="button" class="chip" data-data="Qua, 17/06">Qua 17</button>
+          </div>
+          <div class="ag-titulo">Horário</div>
+          <div class="horarios" id="grade-horarios">
+            <button type="button" class="hora" data-hora="07:30">07:30</button>
+            <button type="button" class="hora" data-hora="08:00">08:00</button>
+            <button type="button" class="hora" disabled>09:00</button>
+            <button type="button" class="hora" data-hora="09:30">09:30</button>
+            <button type="button" class="hora" data-hora="10:00">10:00</button>
+            <button type="button" class="hora selecionado" data-hora="10:30">10:30</button>
+            <button type="button" class="hora" data-hora="11:00">11:00</button>
+          </div>
+          <button type="button" class="btn btn-verde" id="btn-passo3">Continuar</button>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="ag-passo" id="passo-3">
+          <div class="ag-titulo">Confirme seu agendamento</div>
+          <div class="resumo">
+            <div class="resumo-linha"><span>Paciente</span><b>João Ferreira (filho)</b></div>
+            <div class="resumo-linha"><span>Vacina</span><b id="res-vacina">DTP 1º reforço</b></div>
+            <div class="resumo-linha"><span>UBS</span><b id="res-ubs">UBS Jardim Esperança</b></div>
+            <div class="resumo-linha"><span>Data</span><b id="res-data">Sex, 12/06</b></div>
+            <div class="resumo-linha"><span>Horário</span><b id="res-hora">10:30</b></div>
+          </div>
+          <p class="aviso-rn">(RN-004) Cancelamentos com menos de 2h de antecedência contam como falta; 3 faltas geram bloqueio de 30 dias.</p>
+          <button type="button" class="btn btn-verde" id="btn-confirmar">Confirmar agendamento</button>
+        </div>
+      </div>
+
+      <!-- TELA-04 CONFIRMAÇÃO -->
+      <div class="tela" id="tela-04" data-screen-label="Tela-04 Confirmação">
+        <div class="conf-corpo">
+          <div class="check-circulo">
+            <svg viewBox="0 0 36 36" aria-hidden="true"><path class="check-traco" d="M9 19 l6 6 l12 -13"></path></svg>
+          </div>
+          <h2>Agendamento confirmado!</h2>
+          <div class="resumo" style="width: 100%;">
+            <div class="resumo-linha"><span>Vacina</span><b id="conf-vacina">DTP 1º reforço</b></div>
+            <div class="resumo-linha"><span>UBS</span><b id="conf-ubs">UBS Jardim Esperança</b></div>
+            <div class="resumo-linha"><span>Data</span><b id="conf-data">Sex, 12/06</b></div>
+            <div class="resumo-linha"><span>Horário</span><b id="conf-hora">10:30</b></div>
+          </div>
+          <p class="protocolo">Protocolo <b>VF-2026-008431</b></p>
+          <p class="nota-rn" style="width: 100%;">Lembretes enviados em D-7 e D-1 (RF-008).</p>
+          <button type="button" class="btn btn-outline" id="btn-calendario">Adicionar ao calendário</button>
+          <button type="button" class="btn btn-verde" id="btn-voltar-inicio">Voltar ao início</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PERFIL TÉCNICO ═══════════ -->
+<section class="perfil" id="perfil-tecnico" data-screen-label="Tela-05 Painel Técnico">
+  <div class="painel">
+    <div class="painel-header">
+      <div class="avatar">CH</div>
+      <div>
+        <h2>Carlos Henrique Santos</h2>
+        <p>Técnico de Enfermagem · COREN-SP 442.118 · UBS Jardim Esperança</p>
+      </div>
+      <div class="painel-tag">TELA-05 · PAINEL DO TÉCNICO</div>
+    </div>
+    <div class="metricas">
+      <div class="metrica"><div class="metrica-valor">12</div><div class="metrica-rotulo">Agendamentos hoje</div></div>
+      <div class="metrica"><div class="metrica-valor" id="m-concluidos">7</div><div class="metrica-rotulo">Concluídos</div></div>
+      <div class="metrica"><div class="metrica-valor" id="m-pendentes">5</div><div class="metrica-rotulo">Pendentes</div></div>
+      <div class="metrica"><div class="metrica-valor">0</div><div class="metrica-rotulo">Faltas</div></div>
+    </div>
+    <div class="cartao-bloco">
+      <div class="bloco-titulo">Agendamentos do dia · Sexta, 12 de junho</div>
+      <div class="busca">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A6478" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input type="text" id="busca-paciente" placeholder="Buscar por nome ou CPF (RF-017)">
+      </div>
+      <div class="agenda-lista" id="agenda-lista">
+        <div class="agenda-item concluido" data-busca="luiza camargo 321.654.987-00">
+          <div class="agenda-hora">09:30</div>
+          <div class="agenda-info"><b>Luiza Camargo</b><span>HPV · 1ª dose · CPF 321.654.•••-••</span></div>
+          <button type="button" class="btn-registrar" disabled>✓ Concluído</button>
+        </div>
+        <div class="agenda-item" data-busca="joão ferreira joao 123.456.789-00">
+          <div class="agenda-hora">10:30</div>
+          <div class="agenda-info"><b>João Ferreira</b><span>DTP 1º reforço · resp. Ana Paula · CPF 123.456.•••-••</span></div>
+          <button type="button" class="btn-registrar" data-paciente="João Ferreira" data-vacina="DTP 1º reforço">Registrar vacinação</button>
+        </div>
+        <div class="agenda-item" data-busca="maria oliveira 987.123.456-00">
+          <div class="agenda-hora">10:45</div>
+          <div class="agenda-info"><b>Maria Oliveira</b><span>Influenza · dose anual · CPF 987.123.•••-••</span></div>
+          <button type="button" class="btn-registrar" data-paciente="Maria Oliveira" data-vacina="Influenza (dose anual)">Registrar vacinação</button>
+        </div>
+        <div class="agenda-item" data-busca="pedro souza 456.789.123-00">
+          <div class="agenda-hora">11:00</div>
+          <div class="agenda-info"><b>Pedro Souza</b><span>Hepatite B · 3ª dose · CPF 456.789.•••-••</span></div>
+          <button type="button" class="btn-registrar" data-paciente="Pedro Souza" data-vacina="Hepatite B (3ª dose)">Registrar vacinação</button>
+        </div>
+      </div>
+      <p class="sem-resultado" id="sem-resultado">Nenhum paciente encontrado para esta busca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PERFIL GESTOR ═══════════ -->
+<section class="perfil" id="perfil-gestor" data-screen-label="Tela-06 Dashboard Gestor">
+  <div class="painel">
+    <div class="painel-header">
+      <div class="avatar">MS</div>
+      <div>
+        <h2>Márcia Aparecida Silva</h2>
+        <p>Gestora · UBS Jardim Esperança · Junho/2026</p>
+      </div>
+      <div class="painel-tag">TELA-06 · DASHBOARD DO GESTOR</div>
+    </div>
+    <div class="metricas">
+      <div class="metrica"><div class="metrica-valor">1.248<small>▲12%</small></div><div class="metrica-rotulo">Vacinações no mês</div></div>
+      <div class="metrica"><div class="metrica-valor">86%</div><div class="metrica-rotulo">Cobertura (meta SUS: 90%)</div></div>
+      <div class="metrica"><div class="metrica-valor" style="color: #C0392B;">2</div><div class="metrica-rotulo">Alertas de estoque</div></div>
+      <div class="metrica"><div class="metrica-valor">47</div><div class="metrica-rotulo">Agendamentos amanhã</div></div>
+    </div>
+    <div class="gestor-grid">
+      <div class="cartao-bloco">
+        <div class="bloco-titulo">Cobertura vacinal por imunizante (RF-014)</div>
+        <div class="grafico">
+          <div class="barra-grupo"><span class="barra-pct" style="color: #1E7A50;">94%</span><div class="barra" style="height: 94%; background: #2E9E6B;"></div><span class="barra-rotulo">Penta­valente</span></div>
+          <div class="barra-grupo"><span class="barra-pct" style="color: #1E7A50;">91%</span><div class="barra" style="height: 91%; background: #2E9E6B;"></div><span class="barra-rotulo">Polio­mielite</span></div>
+          <div class="barra-grupo"><span class="barra-pct" style="color: #B97A0C;">78%</span><div class="barra" style="height: 78%; background: #B97A0C;"></div><span class="barra-rotulo">DTP reforço</span></div>
+          <div class="barra-grupo"><span class="barra-pct" style="color: #1E7A50;">88%</span><div class="barra" style="height: 88%; background: #2E9E6B;"></div><span class="barra-rotulo">Hepatite B</span></div>
+          <div class="barra-grupo"><span class="barra-pct" style="color: #C0392B;">62%</span><div class="barra" style="height: 62%; background: #C0392B;"></div><span class="barra-rotulo">HPV</span></div>
+          <div class="barra-grupo"><span class="barra-pct" style="color: #B97A0C;">74%</span><div class="barra" style="height: 74%; background: #B97A0C;"></div><span class="barra-rotulo">Influenza</span></div>
+        </div>
+        <p class="meta-linha">Meta SUS de cobertura: 90% por imunizante.</p>
+      </div>
+      <div>
+        <div class="cartao-bloco">
+          <div class="bloco-titulo">Estoque de vacinas (RF-012)</div>
+          <div class="alerta-critico">
+            <span aria-hidden="true">⚠</span>
+            <span>HPV e Hepatite A abaixo do nível crítico de 10 doses — alerta automático disparado (RN-006 / RF-013).</span>
+          </div>
+          <table class="tabela-estoque">
+            <thead><tr><th>VACINA</th><th>DOSES</th><th>STATUS</th></tr></thead>
+            <tbody>
+              <tr><td>Pentavalente</td><td>112</td><td><span class="badge badge-verde">OK</span></td></tr>
+              <tr><td>DTP</td><td>38</td><td><span class="badge badge-verde">OK</span></td></tr>
+              <tr><td>Influenza</td><td>14</td><td><span class="badge badge-amarelo">BAIXO</span></td></tr>
+              <tr><td>HPV</td><td>6</td><td><span class="badge badge-vermelho">CRÍTICO</span></td></tr>
+              <tr><td>Hepatite A</td><td>9</td><td><span class="badge badge-vermelho">CRÍTICO</span></td></tr>
+              <tr><td>Febre Amarela</td><td>57</td><td><span class="badge badge-verde">OK</span></td></tr>
+            </tbody>
+          </table>
+          <div class="gestor-acoes" style="margin-top: 16px;">
+            <button type="button" class="btn btn-verde" id="btn-relatorio">Gerar relatório</button>
+          </div>
+          <p class="nota-rodape">(RN-010) Dados com universo &lt; 5 indivíduos são anonimizados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Modal registrar vacinação -->
+<div class="modal-fundo" id="modal-fundo">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <h3 id="modal-titulo">Registrar vacinação</h3>
+    <p class="modal-paciente" id="modal-paciente">Paciente</p>
+    <div class="campo">
+      <label for="modal-vacina">Vacina</label>
+      <input id="modal-vacina" type="text" readonly value="">
+    </div>
+    <div class="campo">
+      <label for="modal-lote">Lote *</label>
+      <input id="modal-lote" type="text" placeholder="Ex.: BR-2026-0413">
+      <span class="erro-inline" id="erro-lote">O lote é obrigatório.</span>
+    </div>
+    <div class="campo">
+      <label for="modal-dose">Dose *</label>
+      <select id="modal-dose">
+        <option value="">Selecione…</option>
+        <option>1ª dose</option>
+        <option>2ª dose</option>
+        <option>3ª dose</option>
+        <option>1º reforço</option>
+        <option>Dose anual</option>
+      </select>
+      <span class="erro-inline" id="erro-dose">Selecione a dose aplicada.</span>
+    </div>
+    <p class="nota-rn">(RF-011/RF-012) Ao salvar, a carteirinha é atualizada e o estoque é decrementado automaticamente.</p>
+    <div class="modal-acoes">
+      <button type="button" class="btn btn-cancelar" id="modal-cancelar">Cancelar</button>
+      <button type="button" class="btn btn-verde" id="modal-salvar">Confirmar e salvar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-area" id="toast-area"></div>
+
+<script src="prototipo.js"></script>
+</body>
+</html>

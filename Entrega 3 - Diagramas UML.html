@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VacinaFácil — Diagramas UML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vf-tokens.css">
+<style>
+* { box-sizing: border-box; margin: 0; }
+body {
+  font-family: var(--vf-body);
+  background: var(--vf-bg);
+  color: var(--vf-ink);
+  padding: 36px 40px 64px;
+  -webkit-font-smoothing: antialiased;
+}
+header { max-width: 1400px; margin: 0 auto 24px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+h1 { font-family: var(--vf-display); font-size: 26px; color: var(--vf-petroleo); }
+.sub { font-size: 14px; color: var(--vf-ink-soft); }
+.badge-entrega {
+  margin-left: auto;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--vf-verde-escuro); background: var(--vf-verde-claro);
+  padding: 6px 12px; border-radius: 999px;
+}
+.abas-uml {
+  max-width: 1400px; margin: 0 auto 24px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.aba-uml {
+  border: 1.5px solid var(--vf-line); background: #FFFFFF;
+  border-radius: 999px; padding: 10px 20px;
+  font-family: inherit; font-size: 13.5px; font-weight: 600; color: var(--vf-ink-soft);
+  cursor: pointer; transition: all 0.15s;
+}
+.aba-uml:hover { color: var(--vf-petroleo); border-color: var(--vf-petroleo); }
+.aba-uml.ativa { background: var(--vf-petroleo); border-color: var(--vf-petroleo); color: #FFFFFF; }
+.diagrama {
+  display: none;
+  max-width: 1400px; margin: 0 auto;
+  background: #FFFFFF; border: 1px solid var(--vf-line);
+  border-radius: var(--vf-r-lg); padding: 28px;
+}
+.diagrama.ativo { display: block; }
+.diagrama h2 { font-family: var(--vf-display); font-size: 18px; margin-bottom: 6px; }
+.diagrama p { font-size: 13.5px; color: var(--vf-ink-soft); margin-bottom: 18px; }
+.diagrama svg { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Entrega 3 · Diagramas UML</h1>
+  <span class="sub">VacinaFácil · Requisitos de Software · 2026/1</span>
+  <span class="badge-entrega">4 DIAGRAMAS · NOMES CANÔNICOS</span>
+</header>
+
+<nav class="abas-uml" aria-label="Selecionar diagrama">
+  <button type="button" class="aba-uml ativa" data-alvo="d-casos">3.1 Casos de Uso</button>
+  <button type="button" class="aba-uml" data-alvo="d-classes">3.2 Classes</button>
+  <button type="button" class="aba-uml" data-alvo="d-atividades">3.3 Atividades</button>
+  <button type="button" class="aba-uml" data-alvo="d-sequencia">3.4 Sequência</button>
+</nav>
+
+<section class="diagrama ativo" id="d-casos" data-screen-label="UML Casos de Uso">
+  <h2>3.1 — Diagrama de Casos de Uso</h2>
+  <p>14 casos de uso, 4 atores e o sistema. Relações «include» e «extend» em linha tracejada.</p>
+  <div id="svg-casos"></div>
+</section>
+
+<section class="diagrama" id="d-classes" data-screen-label="UML Classes">
+  <h2>3.2 — Diagrama de Classes (visão conceitual)</h2>
+  <p>8 entidades com atributos e multiplicidades — sem métodos de implementação.</p>
+  <div id="svg-classes"></div>
+</section>
+
+<section class="diagrama" id="d-atividades" data-screen-label="UML Atividades">
+  <h2>3.3 — Diagrama de Atividades</h2>
+  <p>Fluxo completo de agendamento e vacinação, com partição "Dia do atendimento" e decisões guardadas por regras de negócio.</p>
+  <div id="svg-atividades"></div>
+</section>
+
+<section class="diagrama" id="d-sequencia" data-screen-label="UML Sequência">
+  <h2>3.4 — Diagrama de Sequência</h2>
+  <p>Agendamento e registro de vacinação: 6 lifelines, mensagens síncronas (seta cheia) e retornos (tracejados).</p>
+  <div id="svg-sequencia"></div>
+</section>
+
+<script src="diagramas/uml-casos-de-uso.js"></script>
+<script src="diagramas/uml-classes.js"></script>
+<script src="diagramas/uml-atividades.js"></script>
+<script src="diagramas/uml-sequencia.js"></script>
+<script>
+document.getElementById('svg-casos').innerHTML = window.SVG_UML_CASOS;
+document.getElementById('svg-classes').innerHTML = window.SVG_UML_CLASSES;
+document.getElementById('svg-atividades').innerHTML = window.SVG_UML_ATIVIDADES;
+document.getElementById('svg-sequencia').innerHTML = window.SVG_UML_SEQUENCIA;
+
+document.querySelectorAll('.aba-uml').forEach(function (aba) {
+  aba.addEventListener('click', function () {
+    document.querySelectorAll('.aba-uml').forEach(function (a) { a.classList.remove('ativa'); });
+    aba.classList.add('ativa');
+    document.querySelectorAll('.diagrama').forEach(function (d) { d.classList.remove('ativo'); });
+    document.getElementById(aba.dataset.alvo).classList.add('ativo');
+  });
+});
+</script>
+</body>
+</html>
