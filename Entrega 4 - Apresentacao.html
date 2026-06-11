@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VacinaFácil — Defesa Técnica (10 slides)</title>
+<title>VacinaFácil — Defesa Técnica (13 slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -30,11 +30,13 @@
     <p class="s1-sub">Plataforma de Agendamento e Controle de Vacinação</p>
     <p class="s1-disciplina">Requisitos de Software · Bacharelado em Engenharia de Software · 2026/1</p>
     <div class="s1-equipe">
-      <div class="s1-membro"><b>[Nome do integrante]</b><span>Product Owner</span></div>
-      <div class="s1-membro"><b>[Nome do integrante]</b><span>Analista de Requisitos</span></div>
-      <div class="s1-membro"><b>[Nome do integrante]</b><span>UX Analyst</span></div>
-      <div class="s1-membro"><b>[Nome do integrante]</b><span>Scrum Master</span></div>
-      <div class="s1-membro"><b>[Nome do integrante]</b><span>DEV</span></div>
+      <div class="s1-membro"><b>Igor da Nóbrega Loureiro</b><span>Product Owner</span></div>
+      <div class="s1-membro"><b>Airton de Souza Siqueira Martins</b><span>Analista de Requisitos</span></div>
+      <div class="s1-membro"><b>Igor Vendramini Perini</b><span>UX Analyst</span></div>
+      <div class="s1-membro"><b>Higor Samuel Ferreira Silva</b><span>Scrum Master</span></div>
+      <div class="s1-membro"><b>Arthur Tavares Silva</b><span>DEV</span></div>
+      <div class="s1-membro"><b>João Gabriel da Cruz Viana</b><span>DEV</span></div>
+      <div class="s1-membro"><b>João Lucas Claver de Oliveira</b><span>DEV</span></div>
     </div>
   </div>
   <div class="rodape"><b>Vacina<span>Fácil</span></b><span>Sua saúde, organizada.</span></div>
@@ -72,7 +74,7 @@
     <div class="s2-conseq">Consequência: retorno de doenças controladas como sarampo e poliomielite.</div>
     <div class="s2-publico"><b>Público afetado:</b> cidadãos, profissionais de saúde e gestores de UBS.</div>
   </div>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>02 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>02 / 13</span></div>
 </section>
 
 <!-- ════════ SLIDE 3 — SOLUÇÃO ════════ -->
@@ -100,7 +102,7 @@
     <div class="s3-dif">Relatórios automáticos</div>
   </div>
   <p class="s3-parcerias">Parcerias institucionais: <b>Ministério da Saúde · DATASUS · RNDS</b></p>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>03 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>03 / 13</span></div>
 </section>
 
 <!-- ════════ SLIDE 4 — BPMN ════════ -->
@@ -128,7 +130,7 @@
     <span>④ registro manual ilegível</span>
     <span>⑤ consolidação semanal atrasada</span>
   </div>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>04 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>04 / 13</span></div>
 </section>
 
 <!-- ════════ SLIDE 5 — ENGENHARIA DE REQUISITOS ════════ -->
@@ -154,28 +156,57 @@
     <span class="badge-d badge-verde-d">RF-010 · Registro digital de vacinação</span>
     <span class="badge-d badge-azul-d">RNF-003 · Disponibilidade 99,5% (uptime)</span>
     <span class="badge-d badge-azul-d">RNF-007 · AES-256 + LGPD Art. 11</span>
-    <span class="badge-d badge-amarelo-d">RN-004 · 3 faltas = bloqueio de 30 dias</span>
+    <span class="badge-d badge-amarelo-d">RN-004 · Cancelamento &lt; 2h = falta; 3 faltas = bloqueio 30 dias</span>
   </div>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>05 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>05 / 13</span></div>
 </section>
 
-<!-- ════════ SLIDE 6 — UML ════════ -->
-<section data-screen-label="06 UML">
-  <div class="kicker">MODELAGEM · UML</div>
-  <h1 class="titulo" style="font-size: 52px; margin-bottom: 24px;">Quatro visões coerentes do mesmo sistema</h1>
-  <div class="s6-grid">
-    <div class="diagrama-mini s6-quad">
-      <h4>Casos de Uso</h4>
-      <p>14 casos, 4 atores, relações «include» e «extend»</p>
-      <div class="s6-svg" id="s6-casos"></div>
-    </div>
+<!-- ════════ SLIDE 6 — UML 3.1 CASOS DE USO ════════ -->
+<section data-screen-label="06 UML Casos de Uso">
+  <div class="kicker">MODELAGEM · UML · 3.1 DE 4</div>
+  <h1 class="titulo" style="font-size: 52px; margin-bottom: 20px;">Diagrama de Casos de Uso</h1>
+  <div class="diagrama-mini s6-quad" style="flex:1;min-height:0;">
+    <p style="margin-bottom:12px;">14 casos de uso · 4 atores (Cidadão, Técnico, Gestor, Administrador) · relações «include» e «extend»</p>
+    <div class="s6-svg" id="s6-casos"></div>
   </div>
-  <p class="s6-rodape-nota">Todos os diagramas são coerentes entre si e rastreáveis aos requisitos.</p>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>06 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>06 / 13</span></div>
 </section>
 
-<!-- ════════ SLIDE 7 — UX E PERSONAS ════════ -->
-<section data-screen-label="07 Personas">
+<!-- ════════ SLIDE 7 — UML 3.2 CLASSES ════════ -->
+<section data-screen-label="07 UML Classes">
+  <div class="kicker">MODELAGEM · UML · 3.2 DE 4</div>
+  <h1 class="titulo" style="font-size: 52px; margin-bottom: 20px;">Diagrama de Classes</h1>
+  <div class="diagrama-mini s6-quad" style="flex:1;min-height:0;">
+    <p style="margin-bottom:12px;">8 entidades com atributos e multiplicidades — visão conceitual (sem métodos de implementação)</p>
+    <div class="s6-svg" id="s6-classes"></div>
+  </div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>07 / 13</span></div>
+</section>
+
+<!-- ════════ SLIDE 8 — UML 3.3 ATIVIDADES ════════ -->
+<section data-screen-label="08 UML Atividades">
+  <div class="kicker">MODELAGEM · UML · 3.3 DE 4</div>
+  <h1 class="titulo" style="font-size: 52px; margin-bottom: 20px;">Diagrama de Atividades</h1>
+  <div class="diagrama-mini s6-quad" style="flex:1;min-height:0;">
+    <p style="margin-bottom:12px;">Fluxo completo de agendamento e vacinação · partição "Dia do atendimento" · decisões guardadas por RN-003 e RN-006</p>
+    <div class="s6-svg" id="s6-atividades"></div>
+  </div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>08 / 13</span></div>
+</section>
+
+<!-- ════════ SLIDE 9 — UML 3.4 SEQUÊNCIA ════════ -->
+<section data-screen-label="09 UML Sequência">
+  <div class="kicker">MODELAGEM · UML · 3.4 DE 4</div>
+  <h1 class="titulo" style="font-size: 52px; margin-bottom: 20px;">Diagrama de Sequência</h1>
+  <div class="diagrama-mini s6-quad" style="flex:1;min-height:0;">
+    <p style="margin-bottom:12px;">6 lifelines — Cidadão · App · API Backend · BancoDeDados · ServicoNotificacao · Técnico de Enfermagem</p>
+    <div class="s6-svg" id="s6-sequencia"></div>
+  </div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>09 / 13</span></div>
+</section>
+
+<!-- ════════ SLIDE 10 — UX E PERSONAS ════════ -->
+<section data-screen-label="10 Personas">
   <div class="kicker">UX · PERSONAS E JORNADA</div>
   <div class="cartoes s7-personas">
     <div class="cartao s7-card">
@@ -211,11 +242,11 @@
     <div class="s7-etapa"><div class="s7-emoji">😊</div><span>Atendimento</span></div>
     <div class="s7-etapa"><div class="s7-emoji">🤩</div><span>Carteirinha atualizada</span></div>
   </div>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>07 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>10 / 13</span></div>
 </section>
 
-<!-- ════════ SLIDE 8 — PROTÓTIPO ════════ -->
-<section data-screen-label="08 Protótipo">
+<!-- ════════ SLIDE 11 — PROTÓTIPO ════════ -->
+<section data-screen-label="11 Protótipo">
   <div class="kicker">PROTÓTIPO</div>
   <h1 class="titulo" style="font-size: 52px; margin-bottom: 28px;">Demonstração ao vivo — protótipo navegável</h1>
   <div class="s8-grid">
@@ -281,11 +312,11 @@
     </div>
   </div>
   <p class="s8-nota">Protótipo HTML navegável — seletor de perfil no topo: Cidadão · Técnico de Enfermagem · Gestor da UBS.</p>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>08 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>11 / 13</span></div>
 </section>
 
-<!-- ════════ SLIDE 9 — GESTÃO ÁGIL + BACKLOG + RTM ════════ -->
-<section data-screen-label="09 Gestão e RTM">
+<!-- ════════ SLIDE 12 — GESTÃO ÁGIL + BACKLOG + RTM ════════ -->
+<section data-screen-label="12 Gestão e RTM">
   <div class="kicker">GESTÃO ÁGIL · BACKLOG · RASTREABILIDADE</div>
   <div class="s9-blocos">
     <div class="cartao s9-bloco">
@@ -293,7 +324,7 @@
       <p>Planejamento e histórico do time</p>
       <div class="s9-stat"><b>8</b><span>sprints concluídas</span></div>
       <div class="s9-stat"><b>47</b><span>cards com histórico</span></div>
-      <div class="s9-stat"><b>5</b><span>papéis no time</span></div>
+      <div class="s9-stat"><b>7</b><span>integrantes no time</span></div>
     </div>
     <div class="cartao s9-bloco">
       <h3>Backlog do Produto</h3>
@@ -312,22 +343,24 @@
           <tr><td>RF-002</td><td>UC-01</td><td>US-002</td><td>Cidadao</td><td>Tela-01</td></tr>
           <tr><td>RF-003</td><td>UC-02</td><td>US-003</td><td>Dose, Cidadao</td><td>Tela-02</td></tr>
           <tr><td>RF-004</td><td>UC-02</td><td>US-004</td><td>Vacina</td><td>Tela-02</td></tr>
-          <tr><td>RF-005</td><td>UC-03</td><td>US-006</td><td>Agendamento, EstoqueVacina</td><td>Tela-03</td></tr>
-          <tr><td>RF-006</td><td>UC-03</td><td>US-007</td><td>Notificacao</td><td>Tela-04</td></tr>
+          <tr><td>RF-005</td><td>UC-03</td><td>US-005</td><td>Agendamento, EstoqueVacina</td><td>Tela-03</td></tr>
+          <tr><td>RF-006</td><td>UC-03</td><td>US-006</td><td>Notificacao</td><td>Tela-04</td></tr>
           <tr><td>RF-010</td><td>UC-08</td><td>US-011</td><td>Dose, ProfissionalSaude</td><td>Tela-05</td></tr>
+          <tr><td>RF-011</td><td>UC-08</td><td>US-012</td><td>Dose, Cidadao</td><td>Tela-05</td></tr>
           <tr><td>RF-012</td><td>UC-11</td><td>US-013</td><td>EstoqueVacina</td><td>Tela-06</td></tr>
           <tr><td>RF-013</td><td>UC-13</td><td>US-014</td><td>EstoqueVacina</td><td>Tela-06</td></tr>
           <tr><td>RF-014</td><td>UC-12</td><td>US-015</td><td>Dose, UBS</td><td>Tela-06</td></tr>
+          <tr><td>RF-020</td><td>UC-05</td><td>US-018</td><td>Cidadao, Dose</td><td>Tela-02</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <p class="s9-frase">"Qualquer mudança de requisito é <em>rastreável em todos os artefatos</em>."</p>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>09 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>12 / 13</span></div>
 </section>
 
-<!-- ════════ SLIDE 10 — ENCERRAMENTO ════════ -->
-<section class="escuro" data-screen-label="10 Encerramento">
+<!-- ════════ SLIDE 13 — ENCERRAMENTO ════════ -->
+<section class="escuro" data-screen-label="13 Encerramento">
   <div class="kicker">ENCERRAMENTO</div>
   <div class="s10-grids">
     <div class="s10-col">
@@ -344,8 +377,7 @@
     </div>
   </div>
   <p class="s10-frase">Cada agendamento confirmado é uma dose aplicada — e <span>cada dose aplicada é saúde pública</span> de volta aos 95%.</p>
-  <p class="s10-obrigado">Obrigado — perguntas?</p>
-  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>10 / 10</span></div>
+  <div class="rodape"><b>Vacina<span>Fácil</span></b><span>13 / 13</span></div>
 </section>
 
 </deck-stage>
@@ -362,8 +394,8 @@ document.getElementById('s4-asis').innerHTML = window.SVG_BPMN_ASIS;
 document.getElementById('s4-tobe').innerHTML = window.SVG_BPMN_TOBE;
 document.getElementById('s6-casos').innerHTML = window.SVG_UML_CASOS;
 document.getElementById('s6-classes').innerHTML = window.SVG_UML_CLASSES;
-document.getElementById('s6-sequencia').innerHTML = window.SVG_UML_SEQUENCIA;
 document.getElementById('s6-atividades').innerHTML = window.SVG_UML_ATIVIDADES;
+document.getElementById('s6-sequencia').innerHTML = window.SVG_UML_SEQUENCIA;
 /* os contêineres .s4-svg/.s6-svg precisam que o svg preencha o espaço */
 document.querySelectorAll('.s4-svg, .s6-svg').forEach(function (c) {
   c.style.flex = '1';
