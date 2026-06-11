@@ -129,7 +129,7 @@ h1.titulo {
 .s5-badges .badge-d { font-size: 23px; padding: 14px 24px; }
 
 /* ── Slide 6 ── */
-.s6-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 24px; min-height: 0; }
+.s6-grid { flex: 1; display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 24px; min-height: 0; }
 .s6-grid > .diagrama-mini { min-height: 0; min-width: 0; }
 .s6-quad h4 { font-family: var(--vf-display); font-size: 24px; margin-bottom: 4px; }
 .s6-quad p { font-size: 19px; color: var(--vf-ink-soft); margin-bottom: 10px; }
